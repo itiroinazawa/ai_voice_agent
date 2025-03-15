@@ -1,0 +1,14 @@
+langchain>=0.0.267
+langchain-core>=0.0.16
+kokoro>=0.8.2
+soundfile
+torch
+numpy
+torchaudio
+pydub
+fastapi
+uvicorn
+python-multipart
+runpod>=1.2.0
+pillow
+aiofiles

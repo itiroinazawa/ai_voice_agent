@@ -4,12 +4,9 @@ Test script for the RunPod serverless handler
 This simulates RunPod serverless job requests to test functionality locally
 """
 
-import os
-import json
 import base64
 import argparse
 from pathlib import Path
-from pydub import AudioSegment
 
 # Import the handler from runpod_handler.py
 from runpod_handler import handler, initialize_agent

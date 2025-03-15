@@ -3,10 +3,7 @@ LangChain integration for the Voice AI Agent
 """
 
 from typing import Dict, List, Any, Optional
-from pathlib import Path
 
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
 from langchain_core.callbacks import CallbackManagerForChainRun
 from langchain_core.chains import Chain
 
@@ -107,15 +104,19 @@ class VoiceCloningChain(Chain):
         
         return {self.output_key: cloned_voice_id}
 
-def create_voice_agent():
+def create_voice_agent(model_type: str = "kokoro", language: str = "en-us"):
     """
     Create and configure the voice agent with LangChain components.
+    
+    Args:
+        model_type: Type of TTS model to use ('kokoro' or 'zonos')
+        language: Language code for speech synthesis (primarily for Zonos)
     
     Returns:
         Dictionary with voice and cloning chains
     """
-    # Initialize TTS engine
-    tts_engine = TTSEngine()
+    # Initialize TTS engine with specified model type
+    tts_engine = TTSEngine(model_type=model_type, language=language)
     
     # Create voice synthesis chain
     voice_chain = VoiceChain(tts_engine=tts_engine)
